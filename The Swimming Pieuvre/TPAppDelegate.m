@@ -8,23 +8,17 @@
 
 #import "TPAppDelegate.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 @implementation TPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xd8d0c4)];
-    
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:168.0/255.0 green:158.0/255.0 blue:145.0/255.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
+    //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xf4ede1)];
 
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:126.0/255.0 green:26.0/255.0 blue:42.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
-                                                           shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:@"Futura" size:21.0], NSFontAttributeName, nil]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
+    DDLogVerbose(@"didFinishLaunchingWithOptions");
+
     return YES;
 }
 							
